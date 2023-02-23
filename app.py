@@ -2,6 +2,7 @@ from flask import Flask,render_template, request,redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -19,7 +20,7 @@ class Todo(db.Model):
 
 
 @app.route('/',methods=['GET','POST'])
-def hello_world():
+def home():
     if request.method=='POST':
         title=request.form['title']
         desc=request.form['desc']
